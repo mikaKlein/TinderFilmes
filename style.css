@@ -47,3 +47,41 @@ label{
     font-family: "Instrument Serif", serif;
     font-size: 30px;
 }
+
+/* Estilos para o menu de navegação à esquerda */
+nav.menu {
+    display: flex;
+    gap: 20px; /* Espaço entre os links */
+}
+
+nav.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav.menu a:hover {
+    color: #f44336; /* Cor do link quando passar o mouse */
+}
+
+/* Estilos para o botão de sair no canto direito */
+.logout {
+    display: flex;
+    justify-content: flex-end; /* Alinha o botão à direita */
+}
+
+.logout-btn {
+    color: white;
+    background-color: red; /* Cor de fundo vermelha para o botão */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px; /* Borda arredondada para o botão */
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f; /* Cor mais escura ao passar o mouse */
+}

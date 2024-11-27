@@ -15,7 +15,7 @@ if (isset($_POST['botao'])) {
     if($email=="admin" and $senha==$usuario->getSenha()){
         session_start();
         $_SESSION['id'] = $usuario->getIdUser();
-        header("Location: index.php");
+        header("Location: listaFilmes.php");
         exit;
     }
 

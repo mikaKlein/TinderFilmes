@@ -31,14 +31,22 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
 </head>
 <body>
 
-    <header>
+<header>
+    <nav class="menu">
+        <a href="#">Página 1</a>
+        <a href="#">Página 2</a>
+        <a href="#">Página 3</a>
+        <!-- Adicione os links conforme necessário -->
+    </nav>
 
     <h1>Movier</h1>
 
-    
-    </header>
-    <main>
+    <div class="logout">
+        <a href="logout.php" class="logout-btn">Sair</a>
+    </div>
+</header>
 
+    <main>
     <?php if ($filme): ?>
         <div>
             <h3 class="nome_filme"><?= $filme->getNome(); ?></h3>
@@ -62,7 +70,6 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
     <?php else: ?>
         <p>Você já avaliou todos os filmes.</p>
     <?php endif; ?>
-    </main>   
-
+    </main>
 </body>
 </html>
