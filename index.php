@@ -26,16 +26,27 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avaliação de Filmes</title>
+    <link rel="icon" type="image/avif" href="./imagens/pipoca.avif">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <header>
+
+    <h1>Movier</h1>
+
+    
+    </header>
+    <main>
+
     <?php if ($filme): ?>
         <div>
-            <img src="<?= $filme->getCaminhoFoto(); ?>" alt="<?= $filme->getNome(); ?>" style="width: 100%; max-width: 500px;" />
-            <h3><?= $filme->getNome(); ?></h3>
-            <p><?= $filme->getDescricao(); ?></p>
+            <h3 class="nome_filme"><?= $filme->getNome(); ?></h3>
+            <img class="imagens_filmes" src="<?= $filme->getCaminhoFoto(); ?>" alt="<?= $filme->getNome(); ?>"  />
+            <p class="descricao_filme"><?= $filme->getDescricao(); ?></p>
             
             <!-- Formulário para votar -->
-            <form action="index.php" method="POST">
+            <form action="index.php" method="POST" class="avaliacao">
                 <label for="voto">Avalie o filme (1-5):</label>
                 <input type="hidden" name="filme_id" value="<?= $filme->getIdFilme(); ?>">
                 <select name="voto" id="voto">
@@ -51,5 +62,7 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
     <?php else: ?>
         <p>Você já avaliou todos os filmes.</p>
     <?php endif; ?>
+    </main>   
+
 </body>
 </html>

@@ -1,9 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Italiana&display=swap');
 
 *{
     margin: 0px;
     padding: 0px;
     font-family: "Italiana", sans-serif;
     text-align: center;
+}
+header {
+    background-color: #437274;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 0;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagens_filmes{
+    align-items: center;
+    border-radius: 50px;
+    width: 40%;
+    height: 50%;
+}
+
+.nome_filme{
+    text-align: center;
+    font-size: 40px;
+}
+.descricao_filme{
+    font-family: "Instrument Serif", serif;
+    font-size: 20px;
+}
+.avaliacao{
+    font-family: "Instrument Serif", serif;
+    font-size: 30px;
+}
+label{
+    font-family: "Instrument Serif", serif;
+    font-size: 30px;
 }
