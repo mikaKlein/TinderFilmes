@@ -91,7 +91,7 @@ class Filme implements ActiveRecord {
                 LIMIT 1
             ";
         $resultado = $conexao->consulta($sql);
-        $f = new Filme($resultado[0]['caminhoFoto'], $resultado[0]['descricao'], $resultado[0]['nome']);
+        $f = new Filme($resultado[0]['caminhoFoto'], $resultado[0]['descricao'], $resultado[0]['nome']);    
         $f->setIdFilme($resultado[0]['idFilme']);
         return $f;
     }

@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE DATABASE IF NOT EXISTS `tinder` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `tinder`
+USE `tinder`;
 -- --------------------------------------------------------
 
 --
@@ -35,6 +35,26 @@ CREATE TABLE `filme` (
   `descricao` varchar(300) NOT NULL,
   `idFilme` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO filme (nome, caminhoFoto, descricao, idFilme)
+VALUES
+('Annabelle', 'uploads/annabelle.png', 'Um casal enfrenta forças sobrenaturais quando uma antiga boneca amaldiçoada chamada Annabelle invade suas vidas.', 1),
+('Enrolados', 'uploads/enrolados.png', 'Rapunzel, uma princesa com cabelos mágicos, embarca em uma aventura emocionante ao lado do ladrão Flynn Rider.', 2),
+('Freira', 'uploads/freira.png', 'Um padre e uma noviça investigam a morte misteriosa de uma freira, enfrentando uma força demoníaca aterrorizante.', 3),
+('Harry Potter 1', 'uploads/harry_potter1.png', 'Harry descobre que é um bruxo e começa sua jornada em Hogwarts, enfrentando perigos e desvendando segredos.', 4),
+('Harry Potter 2', 'uploads/harry_potter2.png', 'Harry retorna a Hogwarts e enfrenta o mistério da Câmara Secreta, onde perigos antigos ameaçam a escola.', 5),
+('Harry Potter 3', 'uploads/harry_potter3.png', 'Harry descobre mais sobre o passado de seus pais enquanto lida com a ameaça de Sirius Black, um fugitivo de Azkaban.', 6),
+('Harry Potter 4', 'uploads/harry_potter4.png', 'Harry participa do Torneio Tribruxo, enfrentando desafios mortais enquanto uma força sombria se aproxima.', 7),
+('Harry Potter 5', 'uploads/harry_potter5.png', 'A Ordem da Fênix ressurge enquanto Harry lidera seus amigos contra Voldemort e a opressão do Ministério da Magia.', 8),
+('Harry Potter 6', 'uploads/harry_potter6.png', 'Harry e Dumbledore investigam o passado de Voldemort, descobrindo os segredos dos Horcruxes.', 9),
+('Harry Potter 7', 'uploads/harry_potter7.png', 'Harry, Ron e Hermione deixam Hogwarts para destruir os Horcruxes e derrotar Voldemort de uma vez por todas.', 10),
+('Harry Potter 8', 'uploads/harry_potter8.png', 'A batalha final em Hogwarts decide o destino do mundo bruxo enquanto Harry enfrenta Voldemort.', 11),
+('Invocação do Mal', 'uploads/invocação_do_mal.png', 'Ed e Lorraine Warren enfrentam uma das investigações mais aterrorizantes de suas carreiras, lutando contra forças demoníacas.', 12),
+('Jogos Vorazes 1', 'uploads/jogos_vorazes1.png', 'Katniss Everdeen luta pela sobrevivência em uma arena mortal, desafiando o sistema opressor de Panem.', 13),
+('Jogos Vorazes 2', 'uploads/jogos_vorazes2.png', 'Katniss retorna à arena em um torneio de campeões enquanto a rebelião contra o Capitol ganha força.', 14),
+('Menino do Pijama Listrado', 'uploads/menino_pijama.png', 'Uma amizade improvável surge entre o filho de um comandante nazista e um menino judeu em um campo de concentração.', 15),
+('Procurando Nemo', 'uploads/procurando_nemo.png', 'Um peixe-palhaço atravessa o oceano em busca de seu filho perdido, enfrentando desafios e fazendo amigos inesquecíveis.', 16),
+('Toy Story', 'uploads/toy_story.png', 'Os brinquedos de Andy ganham vida e vivem aventuras incríveis enquanto enfrentam mudanças em suas vidas.', 17);
 
 -- --------------------------------------------------------
 
