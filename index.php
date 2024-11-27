@@ -1,8 +1,12 @@
 <?php
 require_once __DIR__ . "/vendor/autoload.php";
 
-// Definir o ID do usuário (isso normalmente viria de uma sessão ou banco de dados)
-$usuario_id = 0;
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("location: login.php");
+}
+
+$usuario_id = $_SESSION['id'];
 
 // Buscar o filme que o usuário ainda não votou
 $filme = Filme::findUnicFilme($usuario_id);
@@ -14,7 +18,6 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
     $voto->save();
     $filme = Filme::findUnicFilme($usuario_id);
 }
-
 ?>
 
 <!DOCTYPE html>

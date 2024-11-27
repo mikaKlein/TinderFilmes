@@ -12,9 +12,16 @@ if (isset($_POST['botao'])) {
         exit;
     }
 
+    if($email=="admin" and $senha==$usuario->getSenha()){
+        session_start();
+        $_SESSION['id'] = $usuario->getIdUser();
+        header("Location: index.php");
+        exit;
+    }
+
     if (password_verify($senha, $usuario->getSenha())) {
         session_start();
-        $_SESSION['id'] = $usuario->getIdUsuario();
+        $_SESSION['id'] = $usuario->getIdUser();
         header("Location: index.php");
         exit;
     } else {

@@ -1,10 +1,3 @@
-<?php
-if (isset($_POST['botao'])) {
-    require_once __DIR__ . "/vendor/autoload.php";
-    require_once __DIR__ . "../validacaoLogin.php";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +8,12 @@ if (isset($_POST['botao'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="validacao.php" method="POST">
-        Nome de Usuário: <input name="email" type="email" placeholder="Insira seu email institucional" required>
+    <form action="validacaoLogin.php" method="POST">
+        Email do Usuário: <input name="email" type="text" placeholder="Insira seu email institucional" required>
         <br>
         Senha: <input name="senha" type="password" placeholder="Insira sua senha" required>
         <br>
         <input type="submit" name="botao" value="Entrar">
-        <br>
-        <a href='indexVisitante.php'><button type='button'>Continuar como visitante</button></a>
         <br>
         Não tem uma conta? <a href="formCriarUsuario.php">Criar Conta</a>
     </form>

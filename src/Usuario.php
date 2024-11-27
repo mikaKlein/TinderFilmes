@@ -5,8 +5,9 @@ include_once 'MySQL.php';
 class Usuario implements ActiveRecord {
 
     private int $idUser;
+    private int $isGerente;
 
-    public function __construct(private string $emailInstitucional, private string $senha, private string $nome, private int $isGerente) {
+    public function __construct(private string $emailInstitucional, private string $senha, private string $nome) {
     }
 
     public function setIdUser(int $idUser): void {
@@ -71,9 +72,10 @@ class Usuario implements ActiveRecord {
         $sql = "SELECT * FROM usuario WHERE idUser = {$idUser}";
         $resultado = $conexao->consulta($sql);
 
-        $senha = password_verify($resultado[0]["senha"]);
+        $senha = $resultado[0]["senha"];
         $u = new Usuario($resultado[0]['emailInstitucional'], $senha, $resultado[0]['nome']);
         $u->setIdUser($resultado[0]['idUser']);
+        $u->setIsGerente(0);
         return $u;
     }
 
@@ -84,22 +86,28 @@ class Usuario implements ActiveRecord {
 
         $users = [];
         foreach ($resultados as $resultado) {
-            $senha = password_verify($resultado["senha"]);
+            $senha = $resultado["senha"];
             $u = new Usuario($resultado['emailInstitucional'], $senha, $resultado['nome']);
             $u->setIdUser($resultado['idUser']);
+            $u->setIsGerente(0);
             $users[] = $r;
         }
         return $users;
     }    
 
-    public static function findByEmail($email): Usuario {
+    public static function findByEmail($email): ?Usuario {
         $conexao = new MySQL();
         $sql = "SELECT * FROM usuario WHERE emailInstitucional = '{$email}'";
         $resultado = $conexao->consulta($sql);
-        $senha = password_verify($resultado[0]["senha"]);
-        $u = new Usuario($resultado[0]['emailInstitucional'], $senha, $resultado[0]['nome']);
-        $u->setIdUser($resultado[0]['idUser']);
-        return $u;
+        
+        if(isset($resultado[0])){
+            $senha = $resultado[0]["senha"];
+            $u = new Usuario($resultado[0]['emailInstitucional'], $senha, $resultado[0]['nome']);
+            $u->setIdUser($resultado[0]['idUser']);
+            return $u;
+        }
+    
+        return null;
     }
 }
 ?>
