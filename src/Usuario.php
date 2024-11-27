@@ -52,7 +52,7 @@ class Usuario implements ActiveRecord {
     public function save(): bool {
         $conexao = new MySQL();
         if (isset($this->idUser)) {
-            $this->senha = enctype($this->senha);
+            $this->senha = password_hash($this->senha);
             $sql = "UPDATE usuario SET senha = '{$this->senha}', emailInstitucional = '{$this->emailInstitucional}', nome = '{$this->nome}' WHERE idUser = {$this->idUser}";
         } else {
             $sql = "INSERT INTO usuario (senha, emailInstitucional, nome) VALUES ('{$this->senha}', '{$this->emailInstitucional}', '{$this->nome}')";
@@ -71,7 +71,7 @@ class Usuario implements ActiveRecord {
         $sql = "SELECT * FROM usuario WHERE idUser = {$idUser}";
         $resultado = $conexao->consulta($sql);
 
-        $senha = bcrypt($resultado[0]["senha"]);
+        $senha = password_verify($resultado[0]["senha"]);
         $u = new Usuario($resultado[0]['emailInstitucional'], $senha, $resultado[0]['nome']);
         $u->setIdUser($resultado[0]['idUser']);
         return $u;
@@ -84,12 +84,22 @@ class Usuario implements ActiveRecord {
 
         $users = [];
         foreach ($resultados as $resultado) {
-            $senha = bcrypt($resultado["senha"]);
+            $senha = password_verify($resultado["senha"]);
             $u = new Usuario($resultado['emailInstitucional'], $senha, $resultado['nome']);
             $u->setIdUser($resultado['idUser']);
             $users[] = $r;
         }
         return $users;
     }    
+
+    public static function findByEmail($email): Usuario {
+        $conexao = new MySQL();
+        $sql = "SELECT * FROM usuario WHERE emailInstitucional = '{$email}'";
+        $resultado = $conexao->consulta($sql);
+        $senha = password_verify($resultado[0]["senha"]);
+        $u = new Usuario($resultado[0]['emailInstitucional'], $senha, $resultado[0]['nome']);
+        $u->setIdUser($resultado[0]['idUser']);
+        return $u;
+    }
 }
 ?>

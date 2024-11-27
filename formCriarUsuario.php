@@ -1,28 +1,30 @@
 <?php
-// Verifica se o formulário foi enviado
 if (isset($_POST['botao'])) {
     require_once __DIR__ . "/vendor/autoload.php";
 
-    // Sanitiza os dados recebidos
     $nome = htmlspecialchars(trim($_POST['nome']));
     $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
     $senha = trim($_POST['senha']);
 
-    // Verifica se o e-mail é válido
     if (!$email) {
         die("E-mail inválido! Tente novamente!");
     }
 
-    // Gera um hash seguro para a senha
+    if (!preg_match('/@aluno\.feliz\.ifrs\.edu\.br$/', $email)) {
+        die("O e-mail deve ser institucional com o domínio @aluno.feliz.ifrs.edu.br");
+    }
+
+    $usuarioExistente = Usuario::findByEmail($email);
+    if ($usuarioExistente) {
+        die("Já existe uma conta cadastrada com esse e-mail. Tente usar outro.");
+    }
+
     $password_hash = password_hash($senha, PASSWORD_BCRYPT);
 
-    // Cria o usuário com os dados fornecidos
     $usuario = new Usuario($email, $password_hash, $nome, 0);
 
-    // Salva o usuário no banco de dados
     $usuario->save();
 
-    // Redireciona para a página de login
     header("Location: index.php");
     exit;
 }
