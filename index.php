@@ -28,20 +28,31 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
     <title>Avaliação de Filmes</title>
     <link rel="icon" type="image/avif" href="./imagens/pipoca.avif">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
 <header>
-    <nav class="menu">
-        <a href="#">Página 1</a>
-        <a href="#">Página 2</a>
-        <a href="#">Página 3</a>
-        <!-- Adicione os links conforme necessário -->
-    </nav>
+    <div class="header-container">
+        <!-- Botão de menu -->
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        
+        <!-- Nome da aplicação -->
+        <h1 class="app-title">Movier</h1>
 
-    <h1>Movier</h1>
+        <!-- Menu de navegação -->
+        <nav id="menu" class="menu" style="display: none;">
+            <a href="listaFilmes.php?ordem=asc">Ranking de Filmes</a>
+            <a href="#">Página 2</a>
+            <a href="#">Página 3</a>
+        </nav>
 
-    <div class="logout">
+        <!-- Nome do usuário -->
+        <div class="user-info">
+            <span>Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?>!</span>
+        </div>
+
+        <!-- Botão de logout -->
         <a href="logout.php" class="logout-btn">Sair</a>
     </div>
 </header>

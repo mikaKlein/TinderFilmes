@@ -81,7 +81,7 @@ class Filme implements ActiveRecord {
         return $filmes;
     }    
 
-    public static function findUnicFilme($userId): Filme{
+    public static function findUnicFilme($userId): ?Filme{
         $conexao = new MySQL();
         $sql = "
                 SELECT * FROM filme
@@ -90,11 +90,45 @@ class Filme implements ActiveRecord {
                 )
                 LIMIT 1
             ";
+
         $resultado = $conexao->consulta($sql);
-        $f = new Filme($resultado[0]['caminhoFoto'], $resultado[0]['descricao'], $resultado[0]['nome']);    
-        $f->setIdFilme($resultado[0]['idFilme']);
-        return $f;
+
+        if(isset($resultado[0])){
+            $resultado = $conexao->consulta($sql);
+            $f = new Filme($resultado[0]['caminhoFoto'], $resultado[0]['descricao'], $resultado[0]['nome']);    
+            $f->setIdFilme($resultado[0]['idFilme']);
+            return $f;
+        }
+
+        return null;
     }
 
+    public static function findAllByStars($ordem): array {
+        $conexao = new MySQL();
+        $sql = "
+                SELECT f.idFilme, f.caminhoFoto, f.descricao, f.nome, AVG(v.numStars) as media
+                FROM filme f
+                JOIN voto v ON f.idFilme = v.idFilme
+                GROUP BY f.idFilme
+                ORDER BY media {$ordem}
+            ";
+
+        $resultados = $conexao->consulta($sql);
+
+        $filmes = [];
+        foreach ($resultados as $resultado) {
+            $f = new Filme($resultado['caminhoFoto'], $resultado["descricao"], $resultado['nome']);
+            $f->setIdFilme($resultado['idFilme']);
+            $filmes[] = $f;
+        }
+        return $filmes;
+    }
+
+    public function getMediaVotos(): float{
+        $conexao = new MySQL();
+        $sql = "SELECT AVG(numStars) as media FROM voto WHERE idFilme = {$this->idFilme}";
+        $resultado = $conexao->consulta($sql);
+        return $resultado[0]['media'];
+    }
 }
 ?>

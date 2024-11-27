@@ -22,6 +22,7 @@ if (isset($_POST['botao'])) {
     if (password_verify($senha, $usuario->getSenha())) {
         session_start();
         $_SESSION['id'] = $usuario->getIdUser();
+        $_SESSION['nome_usuario'] = $usuario->getNome();
         header("Location: index.php");
         exit;
     } else {
