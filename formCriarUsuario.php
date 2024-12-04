@@ -40,6 +40,30 @@ if (isset($_POST['botao'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <!-- Botão de menu -->
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            
+            <!-- Nome da aplicação -->
+            <h1 class="app-title">Movier</h1>
+
+            <!-- Menu de navegação -->
+            <nav id="menu" class="menu" style="display: none;">
+                <a href="listaFilmes.php?ordem=asc">Ranking de Filmes</a>
+                <a href="#">Página 2</a>
+                <a href="#">Página 3</a>
+            </nav>
+
+            <!-- Nome do usuário -->
+            <div class="user-info">
+                <span>Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?>!</span>
+            </div>
+
+            <!-- Botão de logout -->
+            <a href="logout.php" class="logout-btn">Sair</a>
+        </div>
+    </header>
     <form action="formCriarUsuario.php" method="POST" >
         Nome de Usuário: <input name="nome" type="text" placeholder="Crie um nome de usuário" required>
         <br>
@@ -51,5 +75,10 @@ if (isset($_POST['botao'])) {
         <br>
        Já tem uma conta? <a href='login.php'>Fazer login</a>
     </form>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Sistema de Filmes</p>
+        </div>
+    </footer>
 </body>
 </html>

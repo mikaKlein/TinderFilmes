@@ -137,6 +137,7 @@ main h2 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    flex-direction: column;
 }
 
 .ranking {
@@ -160,8 +161,8 @@ main h2 {
 }
 
 .filme-card {
-    width: 250px;
-    height: 150px;
+    width: 100%;
+    height: 300px;
     background-color: #e9c46a;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -300,4 +301,69 @@ header h1 {
     left: 50%;
     transform: translateX(-50%);
     color: #FFFFFF;
+}
+
+
+/* Container principal que envolve o filme */
+.filme-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px;
+}
+
+/* Estilo da imagem do filme */
+.filme-foto img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Informações do filme */
+.filme-info {
+    max-width: 600px;
+    margin-left: 30px;
+}
+
+.filme-info h2 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.filme-info p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.filme-info strong {
+    font-weight: bold;
+}
+
+/* Estilo do rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-container {
+    font-size: 0.9rem;
+}
+
+.ranking-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.posicao {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #444;
+    margin-right: 10px;
 }

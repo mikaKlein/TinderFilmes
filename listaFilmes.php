@@ -55,19 +55,33 @@ $usuario_id = $_SESSION['id'];
         <div class="table-container">
             <?php
                 $filmes = Filme::findAllByStars($_GET['ordem']);
+                if($_GET['ordem'] == 'desc'){
+                    $posicao = 1;
+                } else {
+                    $posicao = count($filmes);
+                }
                 foreach ($filmes as $filme) {
                     $media = $filme->getMediaVotos();
                     $caminhoFoto = $filme->getCaminhoFoto(); // Assume que existe o método `getCaminhoFoto`
                     echo "<a href='visualizarFilme.php?idFilme={$filme->getIdFilme()}' class='filme-card'>";
+                    echo "<div class='ranking-info'>";
+                    echo "<span class='posicao'>#{$posicao}</span>"; // Mostra a posição do filme.
+                    echo "</div>";
                     echo "<img src='{$caminhoFoto}' alt='{$filme->getNome()}'>";
                     echo "<h3>{$filme->getNome()}</h3>";
                     echo "<p class='media'>Média: {$media}</p>";
                     echo "</a>";
+                    $posicao++;
                 }
             ?>
         </div>
     </div>
+    
 </main>
-
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2024 Sistema de Filmes</p>
+    </div>
+</footer>
 </body>
 </html>

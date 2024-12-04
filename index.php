@@ -82,5 +82,10 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
         <p>Você já avaliou todos os filmes.</p>
     <?php endif; ?>
     </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Sistema de Filmes</p>
+        </div>
+    </footer>
 </body>
 </html>
