@@ -83,12 +83,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Filme</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <div class="header-container">
-            <h1 class="app-title">Editar Filme</h1>
-            <a href="listaFilmes.php" class="back-btn">Voltar para a lista de filmes</a>
+            <!-- Botão de menu -->
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            
+            <!-- Nome da aplicação -->
+            <h1 class="app-title">Movier</h1>
+
+            <!-- Menu de navegação -->
+            <nav id="menu" class="menu" style="display: none;">
+                <a href="index.php">Tela Inicial</a>
+                <a href="listaFilmes.php">Ranking de Filmes</a>
+            </nav>
+
+            <!-- Nome do usuário -->
+            <div class="user-info">
+                <span>Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?>!</span>
+                    <!-- Botão de logout -->
+                <a href="logout.php" class="logout-btn">Sair</a>
+            </div>
         </div>
     </header>
 

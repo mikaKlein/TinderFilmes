@@ -313,8 +313,6 @@ header h1 {
     color: #FFFFFF;
 }
 
-
-/* Container principal que envolve o filme */
 .filme-container {
     display: flex;
     flex-direction: row;
@@ -323,7 +321,6 @@ header h1 {
     margin: 30px;
 }
 
-/* Estilo da imagem do filme */
 .filme-foto img {
     width: 300px;
     height: auto;
@@ -331,7 +328,6 @@ header h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Informações do filme */
 .filme-info {
     max-width: 600px;
     margin-left: 30px;
@@ -352,7 +348,6 @@ header h1 {
     font-weight: bold;
 }
 
-/* Estilo do rodapé */
 footer {
     background-color: #3c6e71;
     color: #fff;
@@ -378,8 +373,6 @@ footer {
     margin-right: 10px;
 }
 
-
-
 .form-container {
     background-color: #f8f9fa;
     padding: 20px;
@@ -395,7 +388,6 @@ footer {
     color: #2c7a7b;
 }
 
-/* Campos do formulário */
 .form-group {
     margin-bottom: 15px;
 }
@@ -438,7 +430,6 @@ button.btn-submit:hover {
     background-color: #225a5b;
 }
 
-/* Mensagens de erro e sucesso */
 .error {
     color: #e53e3e;
     margin-bottom: 15px;
@@ -472,4 +463,51 @@ button.btn-submit:hover {
     align-items: center;
     margin-top: 20px;
     flex-direction: column;
+}
+
+/* Container para as estrelas */
+.rating {
+    display: inline-flex;
+    flex-direction: row-reverse; /* Ordem corrigida */
+    justify-content: flex-start;
+}
+
+/* Esconder os botões de rádio */
+.rating input[type="radio"] {
+    display: none;
+}
+
+/* Estilo padrão das estrelas */
+.rating label {
+    font-size: 2rem;
+    color: #ddd; /* Cinza claro para estrelas não selecionadas */
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    width: 2rem;
+    text-align: center;
+}
+
+/* Mostrar estrelas não preenchidas */
+.rating label:before {
+    content: "\2605"; /* Unicode da estrela */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Estrelas preenchidas ao serem selecionadas */
+.rating input[type="radio"]:checked ~ label:before {
+    color: #ddd;
+}
+
+.rating input[type="radio"]:checked + label:before,
+.rating input[type="radio"]:checked + label ~ label:before {
+    color: gold;
+}
+
+/* Hover individual */
+.rating label:hover:before,
+.rating label:hover ~ label:before {
+    color: gold;
 }

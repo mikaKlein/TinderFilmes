@@ -31,8 +31,6 @@ $usuario_id = $_SESSION['id'];
         <!-- Menu de navegação -->
         <nav id="menu" class="menu" style="display: none;">
             <a href="index.php">Tela Inicial</a>
-            <a href="#">Página 2</a>
-            <a href="#">Página 3</a>
         </nav>
 
         <!-- Nome do usuário -->

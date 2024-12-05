@@ -66,8 +66,7 @@ if (isset($_POST['button'])) {
             <!-- Menu de navegação -->
             <nav id="menu" class="menu" style="display: none;">
                 <a href="index.php">Tela Inicial</a>
-                <a href="#">Página 2</a>
-                <a href="#">Página 3</a>
+                <a href="listaFilmes.php">Ranking de Filmes</a>
             </nav>
 
             <!-- Nome do usuário -->

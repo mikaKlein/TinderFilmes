@@ -43,8 +43,6 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
         <!-- Menu de navegação -->
         <nav id="menu" class="menu" style="display: none;">
             <a href="listaFilmes.php?ordem=asc">Ranking de Filmes</a>
-            <a href="#">Página 2</a>
-            <a href="#">Página 3</a>
         </nav>
 
         <!-- Nome do usuário -->
@@ -66,15 +64,20 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
             
             <!-- Formulário para votar -->
             <form action="index.php" method="POST" class="avaliacao">
-                <label for="voto">Avalie o filme (1-5):</label>
+                <label for="voto">Avalie o filme:</label>
                 <input type="hidden" name="filme_id" value="<?= $filme->getIdFilme(); ?>">
-                <select name="voto" id="voto">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                <div class="rating">
+                    <input type="radio" name="voto" id="star5" value="5">
+                    <label for="star5" title="5 estrelas"></label>
+                    <input type="radio" name="voto" id="star4" value="4">
+                    <label for="star4" title="4 estrelas"></label>
+                    <input type="radio" name="voto" id="star3" value="3">
+                    <label for="star3" title="3 estrelas"></label>
+                    <input type="radio" name="voto" id="star2" value="2">
+                    <label for="star2" title="2 estrelas"></label>
+                    <input type="radio" name="voto" id="star1" value="1">
+                    <label for="star1" title="1 estrela"></label>
+                </div>
                 <button type="submit">Confirmar voto</button>
             </form>
         </div>

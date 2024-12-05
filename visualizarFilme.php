@@ -41,9 +41,8 @@ if (isset($_GET['idFilme'])) {
 
             <!-- Menu de navegação -->
             <nav id="menu" class="menu" style="display: none;">
-                <a href="listaFilmes.php?ordem=asc">Ranking de Filmes</a>
-                <a href="#">Página 2</a>
-                <a href="#">Página 3</a>
+                <a href="index.php">Tela Inicial</a>
+                <a href="listaFilmes.php?ordem=asc">Ranking de Filmes</a>              
             </nav>
 
             <!-- Nome do usuário -->

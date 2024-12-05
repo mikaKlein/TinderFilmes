@@ -18,9 +18,6 @@
 
             <!-- Menu de navegação -->
             <nav id="menu" class="menu" style="display: none;">
-                <a href="listaFilmes.php?ordem=asc">Ranking de Filmes</a>
-                <a href="#">Página 2</a>
-                <a href="#">Página 3</a>
             </nav>
 
             <!-- Nome do usuário -->
