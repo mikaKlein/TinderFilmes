@@ -75,7 +75,7 @@ class Usuario implements ActiveRecord {
         $senha = $resultado[0]["senha"];
         $u = new Usuario($resultado[0]['emailInstitucional'], $senha, $resultado[0]['nome']);
         $u->setIdUser($resultado[0]['idUser']);
-        $u->setIsGerente(0);
+        $u->setIsGerente($resultado[0]['isGerente']);
         return $u;
     }
 
@@ -89,7 +89,7 @@ class Usuario implements ActiveRecord {
             $senha = $resultado["senha"];
             $u = new Usuario($resultado['emailInstitucional'], $senha, $resultado['nome']);
             $u->setIdUser($resultado['idUser']);
-            $u->setIsGerente(0);
+            $u->setIsGerente($resultado[0]['isGerente']);
             $users[] = $r;
         }
         return $users;
@@ -104,6 +104,7 @@ class Usuario implements ActiveRecord {
             $senha = $resultado[0]["senha"];
             $u = new Usuario($resultado[0]['emailInstitucional'], $senha, $resultado[0]['nome']);
             $u->setIdUser($resultado[0]['idUser']);
+            $u->setIsGerente($resultado[0]['isGerente']);
             return $u;
         }
     

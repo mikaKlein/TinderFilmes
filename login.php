@@ -25,22 +25,25 @@
 
             <!-- Nome do usuário -->
             <div class="user-info">
-                <span>Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?>!</span>
+                <span> Faça seu Login</span>
             </div>
 
             <!-- Botão de logout -->
             <a href="logout.php" class="logout-btn">Sair</a>
         </div>
     </header>
-    <form action="validacaoLogin.php" method="POST">
-        Email do Usuário: <input name="email" type="text" placeholder="Insira seu email institucional" required>
-        <br>
-        Senha: <input name="senha" type="password" placeholder="Insira sua senha" required>
-        <br>
-        <input type="submit" name="botao" value="Entrar">
-        <br>
-        Não tem uma conta? <a href="formCriarUsuario.php">Criar Conta</a>
-    </form>
+
+    <main>    
+        <form action="validacaoLogin.php" method="POST">
+            Email do Usuário: <input name="email" type="text" placeholder="Insira seu email institucional" required>
+            <br>
+            Senha: <input name="senha" type="password" placeholder="Insira sua senha" required>
+            <br>
+            <input type="submit" name="botao" value="Entrar">
+            <br>
+            Não tem uma conta? <a href="formCriarUsuario.php">Criar Conta</a>
+        </form>
+    </main>
     <footer>
         <div class="footer-container">
             <p>&copy; 2024 Sistema de Filmes</p>

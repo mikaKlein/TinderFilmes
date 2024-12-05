@@ -6,6 +6,7 @@ if (isset($_POST['botao'])) {
     $senha = $_POST['senha'];
 
     $usuario = Usuario::findByEmail($email);
+    print_R($usuario);
 
     if (!$usuario) {
         echo "Usuário não encontrado!";
@@ -15,7 +16,10 @@ if (isset($_POST['botao'])) {
     if($email=="admin" and $senha==$usuario->getSenha()){
         session_start();
         $_SESSION['id'] = $usuario->getIdUser();
-        header("Location: listaFilmes.php");
+        $_SESSION['nome_usuario'] = $usuario->getNome();
+        $isGerente = $usuario->getIsGerente();
+        $_SESSION['isGerente'] = $isGerente;
+        header("Location: listaFilmes.php?ordem=desc");
         exit;
     }
 
@@ -23,6 +27,8 @@ if (isset($_POST['botao'])) {
         session_start();
         $_SESSION['id'] = $usuario->getIdUser();
         $_SESSION['nome_usuario'] = $usuario->getNome();
+        $isGerente = $usuario->getIsGerente();
+        $_SESSION['isGerente'] = $isGerente;
         header("Location: index.php");
         exit;
     } else {

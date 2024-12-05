@@ -65,6 +65,19 @@ if (isset($_GET['idFilme'])) {
                 <h2><?php echo htmlspecialchars($filme->getNome()); ?></h2>
                 <p><strong>Descrição:</strong> <?php echo nl2br(htmlspecialchars($filme->getDescricao())); ?></p>
                 <p><strong>Média de Avaliação:</strong> <?php echo number_format($filme->getMediaVotos(), 2); ?> estrelas</p>
+                <p><strong>Quantidade de Avaliações:</strong> <?php echo $filme->getQuantidadeVotos(); ?></p>
+                <p><strong>Ano de Lançamento:</strong> <?php echo $filme->getAnoLancamento(); ?></p>
+                <p><strong>Diretor:</strong> <?php echo $filme->getDiretor(); ?></p>
+                <p><strong>Gênero:</strong> <?php echo $filme->getGenero(); ?></p>
+                <p><strong>Duração:</strong> <?php echo $filme->getDuracao(); ?> minutos</p>
+
+                <?php
+                    if($_SESSION["isGerente"] == 1){
+                        echo "<a href='editarFilme.php?idFilme=" . $_GET['idFilme'] . "'>Editar Filme</a>";
+                        echo "<a href='excluirFilme.php?idFilme=" . $_GET['idFilme'] . "'>Excluir Filme</a>";
+                    }
+                ?>
+
             </div>
         </div>
     </main>

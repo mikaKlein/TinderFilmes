@@ -57,7 +57,7 @@ if (isset($_POST['botao'])) {
 
             <!-- Nome do usuário -->
             <div class="user-info">
-                <span>Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?>!</span>
+                <span>Faça seu Login</span>
             </div>
 
             <!-- Botão de logout -->

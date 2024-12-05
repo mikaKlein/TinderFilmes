@@ -51,27 +51,44 @@ $usuario_id = $_SESSION['id'];
             <a href="listaFilmes.php?ordem=asc">Crescente</a>
             <a href="listaFilmes.php?ordem=desc">Decrescente</a>
         </div>
+        <?php
+            if ($_SESSION['isGerente'] == 1) {
+                echo '<a href="adicionarFilme.php" class="add-movie-btn">Adicionar Filme</a>';
+            }       
+        ?>
         <h2>Ranking de Filmes</h2>
         <div class="table-container">
             <?php
-                $filmes = Filme::findAllByStars($_GET['ordem']);
-                if($_GET['ordem'] == 'desc'){
-                    $posicao = 1;
+                if(isset($_GET['ordem'])){
+                    $filmes = Filme::findAllByStars($_GET['ordem']);
+                    if($_GET['ordem'] == 'desc'){
+                        $posicao = 1;
+                        $flag = 0;
+                    } else {
+                        $posicao = count($filmes);
+                        $flag = 1;
+                    }
                 } else {
-                    $posicao = count($filmes);
+                    $filmes = Filme::findAllByStars('desc');
+                    $posicao = 1;
+                    $flag = 0;
                 }
                 foreach ($filmes as $filme) {
                     $media = $filme->getMediaVotos();
                     $caminhoFoto = $filme->getCaminhoFoto(); // Assume que existe o método `getCaminhoFoto`
                     echo "<a href='visualizarFilme.php?idFilme={$filme->getIdFilme()}' class='filme-card'>";
                     echo "<div class='ranking-info'>";
-                    echo "<span class='posicao'>#{$posicao}</span>"; // Mostra a posição do filme.
+                    echo "<span class='posicao'>#{$posicao}</span>"; 
+                    echo "<h3>{$filme->getNome()}</h3>";
                     echo "</div>";
                     echo "<img src='{$caminhoFoto}' alt='{$filme->getNome()}'>";
-                    echo "<h3>{$filme->getNome()}</h3>";
-                    echo "<p class='media'>Média: {$media}</p>";
+                    echo "<p class='media'>Média: " . number_format($media, 2) . "</p>";
                     echo "</a>";
-                    $posicao++;
+                    if($flag == 1){
+                        $posicao--;
+                    } else {
+                        $posicao++;
+                    }
                 }
             ?>
         </div>
