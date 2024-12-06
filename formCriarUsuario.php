@@ -61,17 +61,22 @@ if (isset($_POST['botao'])) {
             <a href="logout.php" class="logout-btn">Sair</a>
         </div>
     </header>
-    <form action="formCriarUsuario.php" method="POST" >
-        Nome de Usuário: <input name="nome" type="text" placeholder="Crie um nome de usuário" required>
-        <br>
-        Email: <input name="email" type="email" placeholder="Insira seu email" required>
-        <br>
-        Senha: <input name="senha" type="password" placeholder="Crie uma senha"  required >
-        <br>
-        <input type="submit" name="botao" value="Criar conta">
-        <br>
-       Já tem uma conta? <a href='login.php'>Fazer login</a>
-    </form>
+    <main>
+        <form action="formCriarUsuario.php" method="POST">
+            <label for="nome">Nome de Usuário:</label>
+            <input id="nome" name="nome" type="text" placeholder="Crie um nome de usuário" required>
+            
+            <label for="email">Email do Usuário:</label>
+            <input id="email" name="email" type="email" placeholder="Insira seu email institucional" required>
+            
+            <label for="senha">Senha:</label>
+            <input id="senha" name="senha" type="password" placeholder="Crie sua senha" required>
+            
+            <input type="submit" name="botao" value="Criar conta">
+            
+            <p>Já tem uma conta? <a href="login.php">Fazer login</a></p>
+        </form>
+    </main>
     <footer>
         <div class="footer-container">
             <p>&copy; 2024 Sistema de Filmes</p>

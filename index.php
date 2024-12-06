@@ -30,7 +30,7 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
-<body>
+<body class="body-index">
 
 <header>
     <div class="header-container">
@@ -42,7 +42,7 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
 
         <!-- Menu de navegação -->
         <nav id="menu" class="menu" style="display: none;">
-            <a href="listaFilmes.php?ordem=asc">Ranking de Filmes</a>
+            <a href="listaFilmes.php">Ranking de Filmes</a>
         </nav>
 
         <!-- Nome do usuário -->

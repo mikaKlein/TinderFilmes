@@ -30,7 +30,7 @@ if (isset($_GET['idFilme'])) {
     <link rel="stylesheet" href="style.css"> <!-- CSS Externo -->
     <script src="script.js" defer></script>
 </head>
-<body>
+<body class="body-view">
     <header>
         <div class="header-container">
             <!-- Botão de menu -->
@@ -42,7 +42,7 @@ if (isset($_GET['idFilme'])) {
             <!-- Menu de navegação -->
             <nav id="menu" class="menu" style="display: none;">
                 <a href="index.php">Tela Inicial</a>
-                <a href="listaFilmes.php?ordem=asc">Ranking de Filmes</a>              
+                <a href="listaFilmes.php">Ranking de Filmes</a>              
             </nav>
 
             <!-- Nome do usuário -->

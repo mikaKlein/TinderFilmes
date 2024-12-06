@@ -7,9 +7,6 @@ if (!isset($_SESSION['id']) || $_SESSION['isGerente'] != 1) {
     exit;
 }
 
-$erro = "";
-$sucesso = "";
-
 if (isset($_POST['button'])) {
     
     $nome = $_POST['nome'];
@@ -20,7 +17,6 @@ if (isset($_POST['button'])) {
     $duracao = $_POST['duracao'];
     $caminhoFoto = "";
 
-    // Upload da imagem
     if (isset($_FILES['caminhoFoto'])) {
         $extensao = strtolower(pathinfo($_FILES['caminhoFoto']['name'], PATHINFO_EXTENSION));
         $nomeArquivo = uniqid() . '.' . $extensao;
@@ -29,7 +25,7 @@ if (isset($_POST['button'])) {
         if (move_uploaded_file($_FILES['caminhoFoto']['tmp_name'], $destino)) {
             $caminhoFoto = 'uploads/' . $nomeArquivo;
         } else {
-            $erro = "Erro ao fazer upload da imagem.";
+            $erro = "Erro ao fazer upload da imagem. Tente novamente.";
         }
     } else {
         $erro = "Por favor, selecione uma imagem válida.";

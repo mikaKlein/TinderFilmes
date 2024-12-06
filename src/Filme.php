@@ -232,4 +232,12 @@ class Filme implements ActiveRecord {
         $resultado = $conexao->consulta($sql);
         return $resultado[0]['quantidade'];
     }
-}
+    
+
+
+
+
+    
+
+
+}    

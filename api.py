@@ -1,60 +1,69 @@
 import requests
+import json
+import os
+from dotenv import load_dotenv
 
-# Substitua pela sua chave de API da TMDb
-TMDB_API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNzU2ZmZkZjJiNGYwMDBlYzI0OTBlOTFmZThkYTE2NyIsIm5iZiI6MTczMzQyMzQxMi44MzcsInN1YiI6IjY3NTFmMTM0ODRjYTkyOGQwMGM5ZWQ0MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CxjgTlLToeGXuL4fNf0A9QJohqlGL084U6kgk38dbQ0"
-TMDB_BASE_URL = "https://api.themoviedb.org/3"
+load_dotenv(".env")
+
+API_KEY = os.getenv("TMDB_API_KEY")
+BASE_URL = os.getenv("TMDB_BASE_URL")
 
 def getToken():
-    url = f"{TMDB_BASE_URL}/authentication/token/new"
+    url = f"{BASE_URL}/authentication/token/new"
     headers = {
-        "Authorization": "Bearer " + TMDB_API_KEY,
+        "Authorization": "Bearer " + API_KEY,
         "accept": "application/json"
     }
-    print(headers)
-    print(url)
-    return requests.get(url, headers=headers, verify=False)
+    return requests.get(url, headers=headers)
 
-def search_movie(query):
-    """
-    Busca filmes com base em um termo.
-    :param query: Nome do filme ou termo de pesquisa.
-    :return: JSON com os resultados da pesquisa.
-    """
-    url = f"{TMDB_BASE_URL}/search/movie"
-    params = {
-        "api_key": TMDB_API_KEY,
-        "query": query,
-        "language": "pt-BR"  # Retorna os dados em português
+def getPopularMovies():
+    url = f"{BASE_URL}/movie/popular"
+    headers = {
+        "Authorization": "Bearer " + API_KEY,
+        "accept": "application/json"
     }
-    response = requests.get(url, params=params)
-    return response.json()
+    return requests.get(url, headers=headers)
 
-def get_movie_details(movie_id):
-    """
-    Obtém os detalhes de um filme pelo ID.
-    :param movie_id: ID do filme.
-    :return: JSON com os detalhes do filme.
-    """
-    url = f"{TMDB_BASE_URL}/movie/{movie_id}"
-    params = {
-        "api_key": TMDB_API_KEY,
-        "language": "pt-BR"  # Retorna os dados em português
+def getMovieDetails(movie_id):
+    url = f"{BASE_URL}/movie/{movie_id}"
+    headers = {
+        "Authorization": "Bearer " + API_KEY,
+        "accept": "application/json"
     }
-    response = requests.get(url, params=params)
-    return response.json()
+    return requests.get(url, headers=headers)
 
-def get_popular_movies():
-    """
-    Obtém uma lista dos filmes mais populares.
-    :return: JSON com os filmes populares.
-    """
-    url = f"{TMDB_BASE_URL}/movie/popular"
-    params = {
-        "api_key": TMDB_API_KEY,
-        "language": "pt-BR"  # Retorna os dados em português
+def getMovieCredits(movie_id):
+    url = f"{BASE_URL}/movie/{movie_id}/credits"
+    headers = {
+        "Authorization": "Bearer " + API_KEY,
+        "accept": "application/json"
     }
-    response = requests.get(url, params=params)
-    return response.json()
+    return requests.get(url, headers=headers)
+
+def getMovieReviews(movie_id):
+    url = f"{BASE_URL}/movie/{movie_id}/reviews"
+    headers = {
+        "Authorization": "Bearer " + API_KEY,
+        "accept": "application/json"
+    }
+    return requests.get(url, headers=headers)
+
+def getMovieByName(name):
+    url = f"{BASE_URL}/search/movie"
+    headers = {
+        "Authorization": "Bearer " + API_KEY,
+        "accept": "application/json"
+    }
+    params = {
+        "query": name
+    }
+    return requests.get(url, headers=headers, params=params)
 
 
-print(getToken())
+
+
+print(getToken().json())
+print(getPopularMovies().json())
+print(getMovieDetails(550).json())
+print(getMovieCredits(550).json())
+print(getMovieReviews(550).json())
