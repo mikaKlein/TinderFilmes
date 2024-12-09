@@ -8,7 +8,6 @@ if (!isset($_SESSION['id'])) {
 
 $usuario_id = $_SESSION['id'];
 
-// Buscar o filme que o usuário ainda não votou
 $filme = Filme::findUnicFilme($usuario_id);
 
 if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
@@ -34,23 +33,18 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
 
 <header>
     <div class="header-container">
-        <!-- Botão de menu -->
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
         
-        <!-- Nome da aplicação -->
         <h1 class="app-title">Movier</h1>
 
-        <!-- Menu de navegação -->
         <nav id="menu" class="menu" style="display: none;">
             <a href="listaFilmes.php">Ranking de Filmes</a>
         </nav>
 
-        <!-- Nome do usuário -->
         <div class="user-info">
             <span>Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?>!</span>
         </div>
 
-        <!-- Botão de logout -->
         <a href="logout.php" class="logout-btn">Sair</a>
     </div>
 </header>
@@ -62,7 +56,6 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
             <img class="imagens_filmes" src="<?= $filme->getCaminhoFoto(); ?>" alt="<?= $filme->getNome(); ?>"  />
             <p class="descricao_filme"><?= $filme->getDescricao(); ?></p>
             
-            <!-- Formulário para votar -->
             <form action="index.php" method="POST" class="avaliacao">
                 <label for="voto">Avalie o filme:</label>
                 <input type="hidden" name="filme_id" value="<?= $filme->getIdFilme(); ?>">

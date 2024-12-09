@@ -1,11 +1,8 @@
 <?php
-
 if(isset($_GET['erro'])){
     echo "<script>document.addEventListener('DOMContentLoaded', function() { openPopup(); });</script>";
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,22 +17,17 @@ if(isset($_GET['erro'])){
 <body>
     <header>
         <div class="header-container">
-            <!-- Botão de menu -->
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
             
-            <!-- Nome da aplicação -->
             <h1 class="app-title">Movier</h1>
 
-            <!-- Menu de navegação -->
             <nav id="menu" class="menu" style="display: none;">
             </nav>
 
-            <!-- Nome do usuário -->
             <div class="user-info">
                 <span> Faça seu Login</span>
             </div>
 
-            <!-- Botão de logout -->
             <a href="logout.php" class="logout-btn">Sair</a>
         </div>
     </header>

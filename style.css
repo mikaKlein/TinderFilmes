@@ -180,7 +180,7 @@ main {
     justify-content: center;
     flex: 1; 
     box-sizing: border-box;
-    height: calc(100vh - 120px); /* Altura total menos header e footer */
+    height: calc(100vh - 120px);
     width: 100%;
 }
 
@@ -192,7 +192,7 @@ main h2 {
 }
 
 .body-lista {
-    background-color: #f4f9f9; /* Fundo claro e agradável */
+    background-color: #f4f9f9;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -219,113 +219,104 @@ main h2 {
     box-sizing: border-box;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff; /* Fundo branco */
+    background-color: #ffffff;
 }
 
-/* Container dos Cards */
 .table-container {
     display: flex;
-    flex-direction: column; /* Exibir os cards um abaixo do outro */
-    gap: 20px; /* Espaçamento entre os cards */
-    max-width: 100%; /* Largura máxima responsiva */
-    margin: 0 auto; /* Centralizar o container */
-    padding: 16px; /* Espaçamento interno do container */
-    box-sizing: border-box; /* Incluir padding no tamanho total */
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
-/* Estilo do Card */
 .filme-card {
-    background-color: #ffffff; /* Fundo branco */
-    border: 1px solid #e0e0e0; /* Borda leve */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Sombra leve */
-    padding: 16px; /* Espaçamento interno */
-    width: 100%; /* Ocupar toda a largura do container */
-    max-width: 320px; /* Largura máxima reduzida para cards menores */
-    margin: 0 auto; /* Centralizar o card */
-    text-decoration: none; /* Remover sublinhado dos links */
-    color: #264653; /* Cor do texto */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    padding: 16px; 
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    text-decoration: none;
+    color: #264653;
     display: flex;
-    flex-direction: column; /* Organizar conteúdo em coluna */
-    align-items: center; /* Centralizar conteúdo */
-    transition: transform 0.3s, box-shadow 0.3s; /* Efeito ao passar o mouse */
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Efeito Hover no Card */
 .filme-card:hover {
-    transform: scale(1.05); /* Leve aumento de tamanho */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagem no Card */
 .filme-card img {
-    width: 100%; /* Imagem ocupa toda a largura do card */
-    max-width: 280px; /* Largura máxima reduzida */
-    height: auto; /* Manter proporção */
-    border-radius: 8px; /* Bordas arredondadas */
-    margin-bottom: 12px; /* Espaçamento abaixo da imagem */
-    object-fit: cover; /* Ajustar imagem sem deformar */
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    object-fit: cover;
 }
 
-/* Ranking e Título */
 .ranking-info {
-    text-align: center; /* Centralizar texto */
-    font-size: 14px; /* Tamanho menor */
-    color: #888; /* Cor mais discreta */
-    margin-bottom: 8px; /* Espaçamento abaixo */
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 8px;
 }
 
-/* Nome do Filme */
 .filme-card h3 {
-    font-size: 16px; /* Tamanho do texto */
-    font-weight: bold; /* Negrito */
-    color: #2a9d8f; /* Cor do texto */
-    margin-bottom: 8px; /* Espaçamento abaixo */
+    font-size: 16px;
+    font-weight: bold;
+    color: #2a9d8f;
+    margin-bottom: 8px;
 }
 
-/* Média de Votos */
 .filme-card .media {
-    font-size: 14px; /* Tamanho menor */
-    font-weight: bold; /* Negrito */
-    color: #e63946; /* Cor vermelha para destaque */
-    background-color: #fff8d4; /* Fundo amarelo claro */
-    padding: 6px 10px; /* Espaçamento interno */
-    border-radius: 6px; /* Bordas arredondadas */
-    text-align: center; /* Centralizar texto */
-    margin-top: 8px; /* Espaçamento acima */
+    font-size: 14px; 
+    font-weight: bold; 
+    color: #e63946;
+    background-color: #fff8d4;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 8px;
 }
 
-/* Estilo do Container Ranking */
 .ranking {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px; /* Espaçamento menor entre os elementos */
-    padding: 8px 16px; /* Espaçamento interno ajustado */
-    background-color: #edf6f9; /* Fundo claro */
-    border-radius: 5px; /* Bordas arredondadas */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra leve */
-}
-/* Texto do Ranking */
-.ranking h3 {
-    font-size: 18px; /* Tamanho do texto */
-    color: #264653; /* Cor do texto */
-    margin: 0; /* Sem margens */
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #edf6f9;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Links de Ordenação */
+.ranking h3 {
+    font-size: 18px;
+    color: #264653;
+    margin: 0;
+}
+
 .ranking a {
-    color: #ffffff; /* Texto branco */
-    background-color: #457b9d; /* Azul para botões */
-    text-decoration: none; /* Sem sublinhado */
-    padding: 6px 12px; /* Reduzindo o tamanho dos botões */
-    border-radius: 4px; /* Bordas arredondadas */
-    font-size: 14px; /* Texto menor */
-    font-weight: bold; /* Negrito */
-    transition: background-color 0.3s; /* Transição suave no hover */
+    color: #ffffff;
+    background-color: #457b9d;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 .ranking a:hover {
-    background-color: #1d3557; /* Azul mais escuro */
+    background-color: #1d3557;
 }
 
 .header-container {
@@ -418,11 +409,6 @@ header h1 {
     color: #FFFFFF;
 }
 
-
-
-
-
-/* Container principal do filme */
 .filme-container {
     display: flex;
     flex-wrap: wrap;
@@ -431,21 +417,19 @@ header h1 {
     gap: 20px;
     margin: 30px auto;
     padding: 20px;
-    max-width: 900px; /* Limitar a largura máxima */
-    background-color: #ffffff; /* Fundo branco */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    max-width: 900px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Imagem do filme */
 .filme-foto img {
     width: 300px;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Informações do filme */
 .filme-info {
     flex: 1;
     display: flex;
@@ -454,19 +438,17 @@ header h1 {
     align-items: flex-start;
     padding: 10px;
     gap: 15px;
-    color: #264653; /* Azul escuro */
+    color: #264653;
 }
 
-/* Título do filme */
 .filme-info h2 {
-    font-size: 2.5rem; /* Maior destaque */
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #457b9d; /* Azul vibrante */
+    color: #457b9d;
     margin-bottom: 20px;
     text-align: left;
 }
 
-/* Descrição e detalhes */
 .filme-info p {
     font-size: 1rem;
     line-height: 1.6;
@@ -474,27 +456,24 @@ header h1 {
     margin: 5px 0;
 }
 
-/* Destaque para média e quantidade de avaliações */
 .filme-info p strong {
     font-weight: bold;
-    color: #2a9d8f; /* Verde-azulado */
+    color: #2a9d8f;
 }
 
-/* Contêiner dos botões */
 .filme-info .button-container {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     width: 100%;
-    justify-content: center; /* Centralizar os botões */
+    justify-content: center; 
 }
 
-/* Botões de ação */
 .filme-info a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #e63946; /* Vermelho para destaque */
+    background-color: #e63946;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -502,30 +481,23 @@ header h1 {
     font-weight: bold;
     text-align: center;
     transition: background-color 0.3s ease;
-    width: 150px; /* Mesma largura para uniformidade */
+    width: 150px;
 }
 
-/* Hover nos botões */
 .filme-info a:hover {
-    background-color: #b71c1c; /* Vermelho mais escuro */
+    background-color: #b71c1c; 
 }
 
-/* Destaque visual para média e avaliações */
 .filme-info .avaliacoes {
-    background-color: #fefae0; /* Amarelo claro */
+    background-color: #fefae0; 
     border-radius: 8px;
     padding: 10px;
     font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
-    color: #e63946; /* Vermelho para destaque */
+    color: #e63946;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-
-
-
-
 
 footer {
     flex-shrink: 0;
@@ -648,22 +620,19 @@ button.btn-submit:hover {
     flex-direction: column;
 }
 
-/* Container para as estrelas */
 .rating {
     display: inline-flex;
-    flex-direction: row-reverse; /* Ordem corrigida */
+    flex-direction: row-reverse;
     justify-content: flex-start;
 }
 
-/* Esconder os botões de rádio */
 .rating input[type="radio"] {
     display: none;
 }
 
-/* Estilo padrão das estrelas */
 .rating label {
     font-size: 2rem;
-    color: #ddd; /* Cinza claro para estrelas não selecionadas */
+    color: #ddd;
     cursor: pointer;
     margin: 0;
     position: relative;
@@ -671,15 +640,13 @@ button.btn-submit:hover {
     text-align: center;
 }
 
-/* Mostrar estrelas não preenchidas */
 .rating label:before {
-    content: "\2605"; /* Unicode da estrela */
+    content: "\2605";
     position: absolute;
     top: 0;
     left: 0;
 }
 
-/* Estrelas preenchidas ao serem selecionadas */
 .rating input[type="radio"]:checked ~ label:before {
     color: #ddd;
 }
@@ -689,133 +656,119 @@ button.btn-submit:hover {
     color: gold;
 }
 
-/* Hover individual */
 .rating label:hover:before,
 .rating label:hover ~ label:before {
     color: gold;
 }
 
 form {
-    background-color: #ffffff; /* Fundo branco */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    padding: 20px; /* Espaçamento interno */
-    width: 40%; /* Responsividade */
-    margin: 0 auto; /* Centralizar horizontalmente */
-    text-align: left; /* Texto alinhado à esquerda */
+    background-color: #ffffff;
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    width: 40%; 
+    margin: 0 auto;
+    text-align: left;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
 }
 
-/* Estilo dos labels */
 form label {
     font-size: 16px;
-    font-family: "Poppins", sans-serif; /* Fonte consistente */
-    color: #333; /* Cor padrão */
+    font-family: "Poppins", sans-serif;
+    color: #333;
     margin-bottom: 8px;
     display: block;
 }
 
-/* Estilo dos campos de entrada */
 form input[type="text"],
 form input[type="email"],
 form input[type="password"] {
-    width: 100%; /* Ocupar toda a largura */
-    padding: 10px; /* Espaçamento interno */
-    margin-bottom: 15px; /* Espaçamento entre campos */
-    border: 1px solid #ccc; /* Borda padrão */
-    border-radius: 5px; /* Bordas arredondadas */
-    font-size: 14px; /* Tamanho da fonte */
-    box-sizing: border-box; /* Evitar estouro do tamanho */
-    font-family: "Poppins", sans-serif; /* Fonte consistente */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-/* Botão de submissão */
 form input[type="submit"] {
-    background-color: #2c7a7b; /* Cor de fundo */
-    color: #ffffff; /* Cor do texto */
-    padding: 10px; /* Espaçamento interno */
-    border: none; /* Sem bordas */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor de clique */
+    background-color: #2c7a7b;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 16px;
-    font-family: "Poppins", sans-serif; /* Fonte consistente */
-    transition: background-color 0.3s; /* Transição suave */
+    font-family: "Poppins", sans-serif;
+    transition: background-color 0.3s;
 }
 
-/* Efeito hover no botão */
 form input[type="submit"]:hover {
-    background-color: #225a5b; /* Cor ao passar o mouse */
+    background-color: #225a5b;
 }
 
-/* Link dentro do formulário */
 form a {
-    color: #2a9d8f; /* Cor do link */
-    text-decoration: none; /* Sem sublinhado */
-    font-size: 14px; /* Tamanho da fonte */
-    font-weight: bold; /* Negrito */
+    color: #2a9d8f;
+    text-decoration: none; 
+    font-size: 14px;
+    font-weight: bold; 
 }
 
 form a:hover {
-    color: #e63946; /* Cor ao passar o mouse */
+    color: #e63946;
 }
 
-
-
-/* Estilo para o título do filme */
 .nome_filme {
-    font-size: 2.5rem; /* Maior destaque */
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #457b9d; /* Azul vibrante */
+    color: #457b9d;
     margin-bottom: 20px;
 }
 
-/* Estilo para a imagem do filme */
 .imagens_filmes {
-    max-width: 300px; /* Reduzir o tamanho da imagem */
+    max-width: 300px;
     height: auto;
-    border-radius: 12px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adicionar sombra */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
 }
 
-/* Descrição do filme */
 .descricao_filme {
-    font-size: 1rem; /* Texto legível */
+    font-size: 1rem;
     line-height: 1.5;
-    color: #333; /* Texto escuro */
+    color: #333;
     margin: 0 auto 20px auto;
     text-align: center;
-    max-width: 600px; /* Limitar largura */
+    max-width: 600px;
 }
 
-/* Formulário de avaliação */
 form.avaliacao {
-    background-color: #ffffff; /* Fundo branco */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 100%;
-    max-width: 400px; /* Tamanho máximo */
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Espaçamento entre elementos */
+    gap: 15px;
 }
 
-/* Texto do formulário */
 form.avaliacao label {
     font-size: 1rem;
     font-weight: bold;
-    color: #457b9d; /* Azul */
+    color: #457b9d;
     margin-bottom: 10px;
 }
 
-/* Botão de confirmação */
 form.avaliacao button {
-    background-color: #2a9d8f; /* Verde */
+    background-color: #2a9d8f;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -826,73 +779,61 @@ form.avaliacao button {
     transition: background-color 0.3s ease;
 }
 
-/* Hover no botão */
 form.avaliacao button:hover {
-    background-color: #1d6f63; /* Verde mais escuro */
+    background-color: #1d6f63; 
 }
 
-/* Estrelas de avaliação */
 .rating {
     display: inline-flex;
-    flex-direction: row-reverse; /* Ordem inversa */
+    flex-direction: row-reverse; 
     gap: 5px;
     justify-content: center;
 }
 
-/* Esconder botões de rádio */
 .rating input[type="radio"] {
     display: none;
 }
 
-/* Estilo padrão das estrelas */
 .rating label {
     font-size: 2rem;
-    color: #ddd; /* Cinza claro */
+    color: #ddd;
     cursor: pointer;
     transition: color 0.2s ease;
 }
 
-/* Estrelas selecionadas */
 .rating input[type="radio"]:checked ~ label {
-    color: gold; /* Estrelas selecionadas em dourado */
+    color: gold; 
 }
 
-/* Hover nas estrelas */
 .rating label:hover,
 .rating label:hover ~ label {
-    color: gold; /* Dourado ao passar o mouse */
+    color: gold;
 }
 
-/* Mensagem quando todos os filmes forem avaliados */
 main p {
     font-size: 1.2rem;
-    color: #e63946; /* Vermelho */
+    color: #e63946;
     font-weight: bold;
     text-align: center;
 }
 
-
-
-/* Estilo do popup */
 .popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-/* Ocultar o popup inicialmente */
 .popup.hidden {
     display: none;
 }
 
-/* Conteúdo do popup */
 .popup-content {
     background-color: white;
     padding: 20px 30px;
@@ -903,17 +844,15 @@ main p {
     max-width: 400px;
 }
 
-/* Cabeçalho do popup */
 .popup-content h2 {
     margin-top: 0;
     font-size: 24px;
-    color: #e63946; /* Vermelho */
+    color: #e63946;
 }
 
-/* Botão de fechar */
 #close-popup {
     margin-top: 15px;
-    background-color: #457b9d; /* Azul */
+    background-color: #457b9d;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -924,5 +863,5 @@ main p {
 }
 
 #close-popup:hover {
-    background-color: #1d3557; /* Azul mais escuro */
+    background-color: #1d3557;
 }

@@ -186,7 +186,6 @@ class Filme implements ActiveRecord {
             $f->setIdFilme($resultado[0]['idFilme']);
             return $f;
         }
-
         return null;
     }
 
@@ -232,12 +231,4 @@ class Filme implements ActiveRecord {
         $resultado = $conexao->consulta($sql);
         return $resultado[0]['quantidade'];
     }
-    
-
-
-
-
-    
-
-
 }    

@@ -53,22 +53,17 @@ if (isset($_POST['button'])) {
 <body>
     <header>
         <div class="header-container">
-            <!-- Botão de menu -->
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
             
-            <!-- Nome da aplicação -->
             <h1 class="app-title">Movier</h1>
 
-            <!-- Menu de navegação -->
             <nav id="menu" class="menu" style="display: none;">
                 <a href="index.php">Tela Inicial</a>
                 <a href="listaFilmes.php">Ranking de Filmes</a>
             </nav>
 
-            <!-- Nome do usuário -->
             <div class="user-info">
                 <span>Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?>!</span>
-                    <!-- Botão de logout -->
                 <a href="logout.php" class="logout-btn">Sair</a>
             </div>
         </div>

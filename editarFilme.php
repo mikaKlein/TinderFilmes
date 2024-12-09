@@ -2,7 +2,6 @@
 require_once __DIR__ . "/vendor/autoload.php";
 
 session_start();
-// Verifica se o usuário está logado e é administrador
 if (!isset($_SESSION['id']) || $_SESSION['isGerente'] != 1) {
     header("location: login.php");
     exit;
@@ -11,7 +10,6 @@ if (!isset($_SESSION['id']) || $_SESSION['isGerente'] != 1) {
 $erro = "";
 $sucesso = "";
 
-// Verifica se o ID do filme foi passado
 if (!isset($_GET['idFilme'])) {
     $erro = "Nenhum filme foi especificado para edição.";
     header("location: listaFilmes.php");
@@ -20,7 +18,6 @@ if (!isset($_GET['idFilme'])) {
 
 $idFilme = intval($_GET['idFilme']);
 
-// Busca o filme pelo ID
 try {
     $filme = Filme::find($idFilme);
     if (!$filme) {
@@ -34,7 +31,6 @@ try {
     exit;
 }
 
-// Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome']);
     $descricao = trim($_POST['descricao']);
@@ -42,9 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $diretor = trim($_POST['diretor']);
     $genero = trim($_POST['genero']);
     $duracao = intval($_POST['duracao']);
-    $caminhoFoto = $filme->getCaminhoFoto(); // Manter a imagem atual caso não seja alterada
-
-    // Verifica se uma nova imagem foi enviada
+    $caminhoFoto = $filme->getCaminhoFoto();
+    
     if (isset($_FILES['caminhoFoto']) && $_FILES['caminhoFoto']['error'] == 0) {
         $extensao = strtolower(pathinfo($_FILES['caminhoFoto']['name'], PATHINFO_EXTENSION));
         $nomeArquivo = uniqid() . '.' . $extensao;
@@ -57,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Atualiza os dados do filme
     if (empty($erro)) {
         $filme->setNome($nome);
         $filme->setDescricao($descricao);
@@ -88,22 +82,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="body-edit">
     <header>
         <div class="header-container">
-            <!-- Botão de menu -->
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
             
-            <!-- Nome da aplicação -->
             <h1 class="app-title">Movier</h1>
 
-            <!-- Menu de navegação -->
             <nav id="menu" class="menu" style="display: none;">
                 <a href="index.php">Tela Inicial</a>
                 <a href="listaFilmes.php">Ranking de Filmes</a>
             </nav>
 
-            <!-- Nome do usuário -->
             <div class="user-info">
                 <span>Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?>!</span>
-                    <!-- Botão de logout -->
                 <a href="logout.php" class="logout-btn">Sair</a>
             </div>
         </div>

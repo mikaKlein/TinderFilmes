@@ -9,11 +9,11 @@ function toggleMenu() {
 
 function openPopup() {
     const popup = document.getElementById('popup');
-    popup.classList.remove('hidden'); // Mostra o popup
+    popup.classList.remove('hidden');
 
     const closeBtn = document.getElementById('close-popup');
     closeBtn.addEventListener('click', () => {
-        popup.classList.add('hidden'); // Oculta o popup ao fechar
+        popup.classList.add('hidden');
     });
 
     // Também fecha o popup se o usuário clicar fora do conteúdo

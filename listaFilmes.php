@@ -22,21 +22,16 @@ $usuario_id = $_SESSION['id'];
 
 <header>
     <div class="header-container">
-        <!-- Botão de menu -->
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
         
-        <!-- Nome da aplicação -->
         <h1 class="app-title">Movier</h1>
 
-        <!-- Menu de navegação -->
         <nav id="menu" class="menu" style="display: none;">
             <a href="index.php">Tela Inicial</a>
         </nav>
 
-        <!-- Nome do usuário -->
         <div class="user-info">
             <span>Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?>!</span>
-                <!-- Botão de logout -->
             <a href="logout.php" class="logout-btn">Sair</a>
         </div>
     </div>
@@ -71,7 +66,7 @@ $usuario_id = $_SESSION['id'];
             }
             foreach ($filmes as $filme) {
                 $media = $filme->getMediaVotos();
-                $caminhoFoto = $filme->getCaminhoFoto(); // Assume que existe o método `getCaminhoFoto`
+                $caminhoFoto = $filme->getCaminhoFoto();
                 echo "<a href='visualizarFilme.php?idFilme={$filme->getIdFilme()}' class='filme-card'>";
                 echo "<div class='ranking-info'>";
                 echo "<span class='posicao'>#{$posicao}</span>"; 
