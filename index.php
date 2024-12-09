@@ -49,7 +49,7 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
     </div>
 </header>
 
-    <main>
+<main>
     <?php if ($filme): ?>
         <div>
             <h3 class="nome_filme"><?= $filme->getNome(); ?></h3>
@@ -77,7 +77,7 @@ if (isset($_POST['filme_id']) && isset($_POST['voto'])) {
     <?php else: ?>
         <p>Você já avaliou todos os filmes.</p>
     <?php endif; ?>
-    </main>
+</main>
     <footer>
         <div class="footer-container">
             <p>&copy; 2024 Sistema de Filmes</p>

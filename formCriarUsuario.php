@@ -51,18 +51,10 @@ if(isset($_GET['erro'])){
 <body>
     <header>
         <div class="header-container">
-            <button class="menu-btn" onclick="toggleMenu()">☰</button>
-            
             <h1 class="app-title">Movier</h1>
-
-            <nav id="menu" class="menu" style="display: none;">
-            </nav>
-
             <div class="user-info">
-                <span>Faça seu Login</span>
+                <span> Faça seu Login</span>
             </div>
-
-            <a href="logout.php" class="logout-btn">Sair</a>
         </div>
     </header>
     <main>
