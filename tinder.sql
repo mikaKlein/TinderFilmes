@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/12/2024 às 19:19
+-- Tempo de geração: 09/12/2024 às 17:43
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -23,6 +23,7 @@ SET time_zone = "+00:00";
 
 CREATE DATABASE IF NOT EXISTS `tinder` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `tinder`;
+
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,10 @@ INSERT INTO `usuario` (`idUser`, `emailInstitucional`, `nome`, `senha`, `isGeren
 (0, 'admin', 'admin', 'senha@123', 1),
 (3, 'mikaeloklein@aluno.feliz.ifrs.edu.br', 'Mikael Odair Klein', '$2y$10$CY4SpYcmjDA4cLBku15RQef/ugdsA7LC8IC5sO7tY1B/r7flD0F9O', 0),
 (4, 'r.michel@aluno.feliz.ifrs.edu.br', 'Renan Michel Hardt', '$2y$10$Y8qPVVKcEJildos7I3.HIuhKEUVp0N9Q.aN2FFlAVu6zWqROQnwUm', 0),
-(5, 'renan@aluno.feliz.ifrs.edu.br', 'Renan Michel', '$2y$10$sOf1iiQ4hDJf9fJ4GX6rbOEEeOCe8wg92bmrEBD1shnlcf5SQTkKa', 0);
+(5, 'renan@aluno.feliz.ifrs.edu.br', 'Renan Michel', '$2y$10$sOf1iiQ4hDJf9fJ4GX6rbOEEeOCe8wg92bmrEBD1shnlcf5SQTkKa', 0),
+(6, 'ale@aluno.feliz.ifrs.edu.br', 'Ale', '$2y$10$DubtCKXS.RPJ6j4hOfad9euBw1O9RuFzHlBzitgLtbSSI.uD5fSMe', 0),
+(7, 'amanda@aluno.feliz.ifrs.edu.br', 'Mikael Odair Klein', '$2y$10$Fijc9L.5iT0o3thcZ0lpx.19S0..yLgvwSOfz0BDYUdTNc1fvf6MK', 0),
+(8, 'mikaelok@aluno.feliz.ifrs.edu.br', 'Renan Michel', '$2y$10$oGVdyueWdVv8zxeerdIssujtyeFPjBuUWSlDZJ5wP8bNMweh8EiTm', 0);
 
 -- --------------------------------------------------------
 
@@ -158,7 +162,26 @@ INSERT INTO `voto` (`idVoto`, `idFilme`, `idUser`, `numStars`) VALUES
 (53, 1, 5, 1),
 (54, 2, 5, 1),
 (55, 3, 5, 1),
-(56, 4, 5, 1);
+(56, 4, 5, 1),
+(57, 1, 6, 3),
+(58, 1, 7, 3),
+(59, 2, 7, 4),
+(60, 3, 7, 5),
+(61, 4, 7, 2),
+(62, 6, 7, 5),
+(63, 7, 7, 2),
+(64, 8, 7, 4),
+(65, 9, 7, 4),
+(66, 10, 7, 5),
+(67, 11, 7, 5),
+(68, 12, 7, 5),
+(69, 13, 7, 5),
+(70, 14, 7, 5),
+(71, 15, 7, 5),
+(72, 16, 7, 5),
+(73, 17, 7, 5),
+(74, 18, 7, 5),
+(75, 18, 3, 4);
 
 --
 -- Índices para tabelas despejadas
@@ -198,13 +221,13 @@ ALTER TABLE `filme`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `voto`
 --
 ALTER TABLE `voto`
-  MODIFY `idVoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `idVoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- Restrições para tabelas despejadas

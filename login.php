@@ -1,3 +1,12 @@
+<?php
+
+if(isset($_GET['erro'])){
+    echo "<script>document.addEventListener('DOMContentLoaded', function() { openPopup(); });</script>";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Login</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -46,5 +56,13 @@
             <p>&copy; 2024 Sistema de Filmes</p>
         </div>
     </footer>
+
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>Erro</h2>
+            <p>Ocorreu um erro ao tentar fazer login. Verifique suas credenciais e tente novamente.</p>
+            <button id="close-popup">Fechar</button>
+        </div>
+    </div>
 </body>
 </html>

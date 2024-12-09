@@ -7,16 +7,19 @@ if (isset($_POST['botao'])) {
     $senha = trim($_POST['senha']);
 
     if (!$email) {
-        die("E-mail inválido! Tente novamente!");
+        header("location: formCriarUsuario.php?erro=Email invalido!");
+        exit;
     }
 
     if (!preg_match('/@aluno\.feliz\.ifrs\.edu\.br$/', $email)) {
-        die("O e-mail deve ser institucional com o domínio @aluno.feliz.ifrs.edu.br");
+        header("location: formCriarUsuario.php?erro=O e-mail deve ser institucional com o domínio @aluno.feliz.ifrs.edu.br");
+        exit;
     }
 
     $usuarioExistente = Usuario::findByEmail($email);
     if ($usuarioExistente) {
-        die("Já existe uma conta cadastrada com esse e-mail. Tente usar outro.");
+        header('location: formCriarUsuario.php?erro=Já existe uma conta cadastrada com esse e-mail. Tente usar outro.');
+        exit;
     }
 
     $password_hash = password_hash($senha, PASSWORD_BCRYPT);
@@ -28,6 +31,11 @@ if (isset($_POST['botao'])) {
     header("Location: index.php");
     exit;
 }
+
+if(isset($_GET['erro'])){
+    echo "<script>document.addEventListener('DOMContentLoaded', function() { openPopup(); });</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +46,7 @@ if (isset($_POST['botao'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuario</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -82,5 +91,20 @@ if (isset($_POST['botao'])) {
             <p>&copy; 2024 Sistema de Filmes</p>
         </div>
     </footer>
+
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>Erro</h2>
+            <p>
+                <?php
+                    if(isset($_GET['erro'])){
+                        echo $_GET['erro'];
+                    }
+                ?>
+            </p>
+            <button id="close-popup">Fechar</button>
+        </div>
+    </div>
+    
 </body>
 </html>

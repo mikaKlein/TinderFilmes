@@ -9,7 +9,7 @@ if (isset($_POST['botao'])) {
     print_R($usuario);
 
     if (!$usuario) {
-        echo "Usuário não encontrado!";
+        header("location: login.php?erro=Usuário não encontrado!");
         exit;
     }
 
@@ -32,7 +32,7 @@ if (isset($_POST['botao'])) {
         header("Location: index.php");
         exit;
     } else {
-        echo "Senha incorreta!";
+        header("location: login.php?erro='Usuário não encontrado!'");
         exit;
     }
 }
