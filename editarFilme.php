@@ -31,7 +31,7 @@ try {
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['botao'])) {
     $nome = trim($_POST['nome']);
     $descricao = trim($_POST['descricao']);
     $anoLancamento = intval($_POST['anoLancamento']);
@@ -46,6 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $destino = __DIR__ . '/uploads/' . $nomeArquivo;
 
         if (move_uploaded_file($_FILES['caminhoFoto']['tmp_name'], $destino)) {
+            if (file_exists(__DIR__ . '/' . $caminhoFoto)) {
+                unlink(__DIR__ . '/' . $caminhoFoto);
+            }
             $caminhoFoto = 'uploads/' . $nomeArquivo;
         } else {
             $erro = "Erro ao fazer upload da nova imagem.";
@@ -62,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $filme->setCaminhoFoto($caminhoFoto);
 
         if ($filme->save()) {
-            header("location: listaFilmes?ordem='desc'.php");
+            header("location: listaFilmes.php?ordem=desc");
         } else {
             $erro = "Erro ao salvar as alterações. Tente novamente.";
         }
@@ -147,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p>Imagem atual: <img src="<?php echo htmlspecialchars($filme->getCaminhoFoto()); ?>" alt="Imagem do Filme" style="max-width: 100px;"></p>
                 </div>
 
-                <button type="submit" class="btn-submit">Salvar Alterações</button>
+                <button name="botao" type="submit" class="btn-submit">Salvar Alterações</button>
             </form>
         </div>
     </main>

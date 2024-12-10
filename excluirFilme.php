@@ -9,13 +9,11 @@ if (!isset($_SESSION['id']) || $_SESSION['isGerente'] != 1) {
 
 if (isset($_GET['idFilme'])) {
     $idFilme = intval($_GET['idFilme']);
-
     try {
         $filme = Filme::find($idFilme);
-
         if ($filme) {
             if ($filme->delete()) {
-                $sucesso = "O filme foi deletado com sucesso!";
+                header("location: listaFilmes.php?ordem=desc");
             } else {
                 $erro = "Erro ao tentar deletar o filme. Tente novamente.";
             }
