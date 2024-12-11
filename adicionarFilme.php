@@ -35,6 +35,7 @@ if (isset($_POST['button'])) {
 
     if ($filme->save()) {
         $sucesso = "Filme adicionado com sucesso!";
+        header("location: listaFilmes.php?ordem=desc");
     } else {
         $erro = "Erro ao salvar o filme. Tente novamente.";
     }
@@ -48,9 +49,10 @@ if (isset($_POST['button'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Filme</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/avif" href="./imagens/pipoca.avif">
     <script src="script.js"></script>
 </head>
-<body>
+<body class="body-view">
     <header>
         <div class="header-container">
             <button class="menu-btn" onclick="toggleMenu()">☰</button>

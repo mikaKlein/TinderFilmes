@@ -12,12 +12,19 @@ if (isset($_GET['idFilme'])) {
     try {
         $filme = Filme::find($idFilme);
         if ($filme) {
+            
+            $imagemPath = __DIR__ . "/uploads/" . $filme->getCaminhoFoto();
+
+            if (file_exists($imagemPath)) {
+                unlink($imagemPath);
+            }
+            
             if ($filme->delete()) {
                 header("location: listaFilmes.php?ordem=desc");
             } else {
                 $erro = "Erro ao tentar deletar o filme. Tente novamente.";
             }
-        } else {
+        }else {
             $erro = "Filme não encontrado.";
         }
     } catch (Exception $e) {

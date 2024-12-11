@@ -80,6 +80,7 @@ if (isset($_POST['botao'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Filme</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/avif" href="./imagens/pipoca.avif">
     <script src="script.js" defer></script>
 </head>
 <body class="body-edit">

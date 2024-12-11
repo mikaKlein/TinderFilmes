@@ -23,6 +23,7 @@ if (isset($_GET['idFilme'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($filme->getNome()); ?></title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/avif" href="./imagens/pipoca.avif">
     <script src="script.js" defer></script>
 </head>
 <body class="body-view">
