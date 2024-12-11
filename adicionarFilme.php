@@ -112,9 +112,6 @@ if (isset($_POST['button'])) {
             </form>
         </div>
 
-        <div class="add-api">
-            <a href="addFilmeAPI.php">Adicionar Filme via API</a>
-        </div>
     </main>
 
     <footer>
