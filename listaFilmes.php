@@ -40,8 +40,8 @@ $usuario_id = $_SESSION['id'];
 <main class="main-lista">
     <div class="ranking">
         <h3>Ordenar por ordem: </h3>
-        <a href="listaFilmes.php?ordem=asc">Crescente</a>
-        <a href="listaFilmes.php?ordem=desc">Decrescente</a>
+        <a href="listaFilmes.php?ordem=asc">Decrescente</a>
+        <a href="listaFilmes.php?ordem=desc">Crescente</a>
     </div>
     <?php
         if ($_SESSION['isGerente'] == 1) {
