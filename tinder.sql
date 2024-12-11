@@ -63,7 +63,7 @@ INSERT INTO `filme` (`nome`, `caminhoFoto`, `descricao`, `idFilme`, `anoLancamen
 ('Menino do Pijama Listrado', 'uploads/menino_pijama.png', 'A improvável amizade entre o filho de um comandante nazista e um menino judeu em um campo de concentração muda suas vidas.', 15, 2008, 'Mark Herman', 'Drama', 94),
 ('Procurando Nemo', 'uploads/procurando_nemo.png', 'Marlin, um peixe-palhaço, viaja pelo oceano com Dory para resgatar seu filho Nemo, que foi capturado por mergulhadores.', 16, 2003, 'Andrew Stanton', 'Animação', 100),
 ('Toy Story', 'uploads/toy_story.png', 'Os brinquedos de Andy, liderados por Woody e Buzz, enfrentam aventuras emocionantes enquanto exploram o mundo humano.', 17, 1995, 'John Lasseter', 'Animação', 81),
-('O Senhor dos Anéis: A Sociedade do Anel', 'uploads/6751e4b3cc669.jpg', 'Um jovem hobbit, Frodo Bolseiro, embarca em uma perigosa jornada para destruir o Anel do Poder e salvar a Terra Média do mal iminente de Sauron.', 18, 2001, 'Peter Jackson', 'Fantasia, Aventura', 178);
+('O Senhor dos Anéis: A Sociedade do Anel', 'uploads/Lord_of_the_Rings_Fellowship_of_the_Ring.png', 'Um jovem hobbit, Frodo Bolseiro, embarca em uma perigosa jornada para destruir o Anel do Poder e salvar a Terra Média do mal iminente de Sauron.', 18, 2001, 'Peter Jackson', 'Fantasia, Aventura', 178);
 
 -- --------------------------------------------------------
 
